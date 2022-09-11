@@ -1,165 +1,162 @@
-// eslint-disable-next-line no-unused-vars
-import { Character } from '../src/Character';
-import { bowerman, receivedBowerman, received2Bowerman } from '../src/Bowerman';
-import { daemon, receivedDaemon, received2Daemon } from '../src/Daemon';
-import { magician, receivedMagician, received2Magician } from '../src/Magician';
-import { swordsman, receivedSwordsman, received2Swordsman } from '../src/Swordsman';
-import { undead, receivedUndead, received2Undead } from '../src/Undead';
-import { zombie, receivedZombie, received2Zombie } from '../src/Zombie';
+/* eslint-disable no-new */
+// eslint-disable-next-line no-unused-vars, import/extensions
+import { Character } from '../src/js/Character.js';
+import { Bowerman, bowerman } from '../src/js/Bowerman';
+import { Daemon, daemon } from '../src/js/Daemon';
+import { Magician, magician } from '../src/js/Magician';
+import { Swordsman, swordsman } from '../src/js/Swordsman';
+import { Undead, undead } from '../src/js/Undead';
+import { Zombie, zombie } from '../src/js/Zombie';
 
 test('name-bowerman', () => {
   expect(typeof bowerman.name).toBe('string');
 });
 test('name-bowerman-error', () => {
-  expect(bowerman.name).toThrow();
+  const t = () => {
+    new Bowerman('В', 'Bowman', 100, 1, 25, 25);
+  };
+  expect(t).toThrow('Некорректное значение "name"!');
 });
 test('type-bowerman', () => {
   expect(typeof bowerman.type).toBe('string');
 });
 test('type-bowerman-error', () => {
-  expect(bowerman.type).toThrow();
+  const t = () => {
+    new Bowerman('Витя', 2, 100, 1, 25, 25);
+  };
+  expect(t).toThrow('Некорректное значение "type"!');
 });
 
 test('name-daemon', () => {
   expect(typeof daemon.name).toBe('string');
 });
 test('name-daemon-error', () => {
-  expect(daemon.name).toThrow();
+  const t = () => {
+    new Daemon('В', 'Daemon', 100, 1, 10, 40);
+  };
+  expect(t).toThrow('Некорректное значение "name"!');
 });
 test('type-daemon', () => {
   expect(typeof daemon.type).toBe('string');
 });
 test('type-daemon-error', () => {
-  expect(daemon.type).toThrow();
+  const t = () => {
+    new Daemon('Витя', 2, 100, 1, 10, 40);
+  };
+  expect(t).toThrow('Некорректное значение "type"!');
 });
 
 test('name-magician', () => {
   expect(typeof magician.name).toBe('string');
 });
 test('name-magician-error', () => {
-  expect(magician.name).toThrow();
+  const t = () => {
+    new Magician('В', 'Magician', 100, 1, 10, 40);
+  };
+  expect(t).toThrow('Некорректное значение "name"!');
 });
 test('type-magician', () => {
   expect(typeof magician.type).toBe('string');
 });
 test('type-magician-error', () => {
-  expect(magician.type).toThrow();
+  const t = () => {
+    new Magician('Витя', 2, 100, 1, 10, 40);
+  };
+  expect(t).toThrow('Некорректное значение "type"!');
 });
 
 test('name-swordsman', () => {
   expect(typeof swordsman.name).toBe('string');
 });
 test('name-swordsman-error', () => {
-  expect(swordsman.name).toThrow();
+  const t = () => {
+    new Swordsman('В', 'Swordsman', 100, 1, 40, 10);
+  };
+  expect(t).toThrow('Некорректное значение "name"!');
 });
 test('type-swordsman', () => {
   expect(typeof swordsman.type).toBe('string');
 });
 test('type-swordsman-error', () => {
-  expect(swordsman.type).toThrow();
+  const t = () => {
+    new Swordsman('Витя', 2, 100, 1, 40, 10);
+  };
+  expect(t).toThrow('Некорректное значение "type"!');
 });
 
 test('name-undead', () => {
   expect(typeof undead.name).toBe('string');
 });
 test('name-undead-error', () => {
-  expect(undead.name).toThrow();
+  const t = () => {
+    new Undead('В', 'Undead', 100, 1, 25, 25);
+  };
+  expect(t).toThrow('Некорректное значение "name"!');
 });
 test('type-undead', () => {
   expect(typeof undead.type).toBe('string');
 });
 test('type-undead-error', () => {
-  expect(undead.type).toThrow();
+  const t = () => {
+    new Undead('Витя', 2, 100, 1, 25, 25);
+  };
+  expect(t).toThrow('Некорректное значение "type"!');
 });
 
 test('name-zombie', () => {
   expect(typeof zombie.name).toBe('string');
 });
 test('name-zombie-error', () => {
-  expect(zombie.name).toThrow();
+  const t = () => {
+    new Zombie('В', 'Undead', 100, 1, 40, 10);
+  };
+  expect(t).toThrow('Некорректное значение "name"!');
 });
 test('type-zombie', () => {
   expect(typeof zombie.type).toBe('string');
 });
 test('type-zombie-error', () => {
-  expect(zombie.type).toThrow();
+  const t = () => {
+    new Zombie('Витя', 2, 100, 1, 40, 10);
+  };
+  expect(t).toThrow('Некорректное значение "type"!');
 });
 
 // 2-ая задача:
 test('levelUp-bowerman', () => {
-  expect(receivedBowerman).toEqual({
-    level: 2,
-    attack: 30,
-    defence: 30,
-    health: 100,
-  });
-});
-
-test('levelUp-daemon', () => {
-  expect(receivedDaemon).toEqual({
-    level: 2,
-    attack: 12,
-    defence: 48,
-    health: 100,
-  });
-});
-
-test('levelUp-magician', () => {
-  expect(receivedMagician).toEqual({
-    level: 2,
-    attack: 12,
-    defence: 48,
-    health: 100,
-  });
-});
-
-test('levelUp-swordsman', () => {
-  expect(receivedSwordsman).toEqual({
-    level: 2,
-    attack: 48,
-    defence: 12,
-    health: 100,
-  });
-});
-
-test('levelUp-undead', () => {
-  expect(receivedUndead).toEqual({
-    level: 2,
-    attack: 30,
-    defence: 30,
-    health: 100,
-  });
-});
-
-test('levelUp-zombie', () => {
-  expect(receivedZombie).toEqual({
-    level: 2,
-    attack: 48,
-    defence: 12,
-    health: 100,
-  });
+  // eslint-disable-next-line func-names
+  const func = (function () {
+    const value = new Bowerman('Витя', 'Bowman', 100, 1, 25, 25);
+    value.levelUp();
+    return value;
+  }());
+  const result = new Bowerman('Витя', 'Bowman', 100, 2, 30, 30);
+  expect(func).toEqual(result);
 });
 
 test('damage-bowerman', () => {
-  expect(received2Bowerman).toBe(92.5);
+  // eslint-disable-next-line func-names
+  const func = (function () {
+    const value = new Bowerman('Витя', 'Bowman', 100, 1, 25, 25);
+    value.damage(10);
+    return value;
+  }());
+  const result = new Bowerman('Витя', 'Bowman', 92.5, 1, 25, 25);
+  expect(func).toEqual(result);
 });
 
-test('damage-daemon', () => {
-  expect(received2Daemon).toBe(94);
+test('health-levelUp-bowerman-error', () => {
+  const func = () => {
+    const value = new Bowerman('Витя', 'Bowman', 0, 1, 25, 25);
+    value.levelUp();
+  };
+  expect(func).toThrow('Нельзя повысить лвл умершего!');
 });
 
-test('damage-magician', () => {
-  expect(received2Magician).toBe(94);
-});
-
-test('damage-swordsman', () => {
-  expect(received2Swordsman).toBe(91);
-});
-
-test('damage-undead', () => {
-  expect(received2Undead).toBe(92.5);
-});
-
-test('damage-zombie', () => {
-  expect(received2Zombie).toBe(91);
+test('health-damage-bowerman-error', () => {
+  const func = () => {
+    const value = new Bowerman('Витя', 'Bowman', -5, 1, 25, 25);
+    value.damage(10);
+  };
+  expect(func).toThrow('Ваш персонаж умер!');
 });
